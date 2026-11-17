@@ -3,36 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Crear usuario en Active Directory</title>
-<meta name="description" content="Video animado: cómo abrir Active Directory y crear un usuario paso a paso.">
+<title>Seguridad en Active Directory</title>
+<meta name="description" content="Serie de videos animados sobre Active Directory: de lo básico a la ciberseguridad experta.">
 <meta name="theme-color" content="#0A0F2C">
 <style>
-  :root { --bg:#0A0F2C; --bg2:#190F3D; --fg:#F8FAFC; --muted:#CBD5E1; --cyan:#22D3EE; --violet:#8B5CF6; --pink:#F472B6; }
+  :root { --bg:#0A0F2C; --bg2:#190F3D; --fg:#F8FAFC; --muted:#CBD5E1; --cyan:#22D3EE; --violet:#8B5CF6; --pink:#F472B6;
+          --basico:#34D399; --intermedio:#FBBF24; --avanzado:#FB923C; --experto:#F472B6; }
   * { box-sizing:border-box; }
-  body { margin:0; min-height:100vh; background:linear-gradient(160deg,var(--bg),var(--bg2)); color:var(--fg);
-         font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; display:flex; flex-direction:column; align-items:center; padding:24px 16px 40px; }
-  h1 { font-size:clamp(1.4rem,5vw,2rem); margin:8px 0 4px; text-align:center; }
-  p.sub { color:var(--muted); margin:0 0 20px; text-align:center; }
-  .player { width:100%; max-width:420px; aspect-ratio:9/16; border-radius:22px; overflow:hidden;
-            box-shadow:0 20px 60px rgba(0,0,0,.5), 0 0 0 2px rgba(34,211,238,.35); background:#000; }
+  body { margin:0; min-height:100vh; background:linear-gradient(160deg,var(--bg),var(--bg2)) fixed; color:var(--fg);
+         font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; padding:24px 16px 48px; }
+  .wrap { max-width:460px; margin:0 auto; }
+  header { text-align:center; margin-bottom:20px; }
+  .tag { display:inline-block; font-size:.75rem; font-weight:800; letter-spacing:.08em; padding:6px 12px; border-radius:999px;
+         border:1px solid rgba(34,211,238,.6); color:#CFFAFE; background:rgba(255,255,255,.06); }
+  h1 { font-size:clamp(1.6rem,7vw,2.2rem); margin:12px 0 6px; line-height:1.1;
+       background:linear-gradient(90deg,var(--cyan),#A78BFA,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  p.sub { color:var(--muted); margin:0; }
+  nav { display:flex; gap:8px; overflow-x:auto; padding:14px 0 6px; scrollbar-width:none; }
+  nav a { flex:0 0 auto; text-decoration:none; color:var(--fg); font-weight:700; font-size:.85rem; padding:8px 12px;
+          border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); }
+  section { margin-top:28px; scroll-margin-top:16px; }
+  .meta { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .lvl { font-size:.7rem; font-weight:800; letter-spacing:.06em; padding:4px 10px; border-radius:999px; color:#0A0F2C; }
+  .basico { background:var(--basico); } .intermedio { background:var(--intermedio); }
+  .avanzado { background:var(--avanzado); } .experto { background:var(--experto); } .extra { background:var(--cyan); }
+  .ep { color:var(--muted); font-size:.85rem; font-weight:700; }
+  h2 { font-size:1.25rem; margin:0 0 4px; }
+  .desc { color:var(--muted); font-size:.92rem; margin:0 0 12px; }
+  .player { width:100%; aspect-ratio:9/16; border-radius:20px; overflow:hidden; background:#000;
+            box-shadow:0 18px 50px rgba(0,0,0,.5), 0 0 0 2px rgba(34,211,238,.25); }
   video { width:100%; height:100%; display:block; object-fit:cover; }
-  .actions { display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; justify-content:center; }
-  a.btn { color:#fff; text-decoration:none; padding:12px 20px; border-radius:999px; font-weight:700;
-          background:linear-gradient(90deg,var(--cyan),var(--violet)); }
-  a.btn.alt { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); }
-  footer { margin-top:28px; color:var(--muted); font-size:.85rem; text-align:center; }
+  .dl { display:inline-block; margin-top:10px; color:var(--cyan); font-weight:700; font-size:.9rem; text-decoration:none; }
+  hr { border:0; border-top:1px solid rgba(255,255,255,.12); margin:36px 0 0; }
+  footer { margin-top:28px; color:var(--muted); font-size:.85rem; text-align:center; line-height:1.6; }
+  footer a { color:var(--cyan); }
 </style>
 </head>
 <body>
-  <h1>Crear un usuario en Active Directory</h1>
-  <p class="sub">Tutorial animado · 55 segundos · formato vertical</p>
-  <div class="player">
-    <video src="video.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
-  </div>
-  <div class="actions">
-    <a class="btn" href="video.mp4" download>Descargar MP4</a>
-    <a class="btn alt" href="render.py">Código de la animación</a>
-  </div>
-  <footer>1080×1920 · 30 fps · listo para Reels, Shorts y TikTok</footer>
+<div class="wrap">
+  <header>
+    <span class="tag">SERIE · 7 EPISODIOS</span>
+    <h1>Seguridad en Active Directory</h1>
+    <p class="sub">De lo más básico a la ciberseguridad experta de AD, en videos de ~1 minuto.</p>
+  </header>
+
+  <nav aria-label="Episodios">
+    <a href="#ep01">01</a><a href="#ep02">02</a><a href="#ep03">03</a><a href="#ep04">04</a>
+    <a href="#ep05">05</a><a href="#ep06">06</a><a href="#ep07">07</a><a href="#extra">Extra</a>
+  </nav>
+
+  <div id="list"></div>
+
+  <hr>
+  <section id="extra">
+    <div class="meta"><span class="lvl extra">EXTRA</span><span class="ep">Tutorial práctico · 0:54</span></div>
+    <h2>Crear un usuario en Active Directory</h2>
+    <p class="desc">Paso a paso en la consola «Usuarios y equipos de Active Directory».</p>
+    <div class="player"><video src="video.mp4" poster="poster.jpg" controls playsinline preload="none"></video></div>
+    <a class="dl" href="video.mp4" download>Descargar MP4 ↓</a>
+  </section>
+
+  <footer>
+    Formato vertical 1080×1920 · listo para Reels, Shorts y TikTok<br>
+    Código de las animaciones: <a href="serie/codigo/engine.py">motor</a> · <a href="render.py">tutorial</a>
+  </footer>
+</div>
+<script>
+  const eps = [
+    ["01","basico","BÁSICO","¿Qué es Active Directory?","Dominio, DC, objetos, OU, bosque y GPO.","1:00"],
+    ["02","basico","BÁSICO","Kerberos: así inicias sesión","TGT, tickets de servicio, krbtgt y NTLM.","1:03"],
+    ["03","intermedio","INTERMEDIO","Auditoría básica de AD","5 comprobaciones con PowerShell y herramientas gratuitas.","1:09"],
+    ["04","intermedio","INTERMEDIO","Eventos que debes vigilar","4625, 4728, 4769, 4662, 1102 y cómo usarlos.","1:08"],
+    ["05","avanzado","AVANZADO","Ataques comunes a AD","Spraying, Kerberoasting, AS-REP, PtH, DCSync y Golden Ticket.","1:09"],
+    ["06","avanzado","AVANZADO","Rutas de ataque y AD CS","Pensar en grafos, BloodHound para defensores y ESC1.","1:11"],
+    ["07","experto","EXPERTO","Hardening experto de AD","Niveles, Protected Users, LAPS, protocolos y recuperación.","1:13"],
+  ];
+  const list = document.getElementById("list");
+  for (const [n, cls, lvl, title, desc, dur] of eps) {
+    const s = document.createElement("section");
+    s.id = "ep" + n;
+    s.innerHTML = `<div class="meta"><span class="lvl ${cls}">${lvl}</span><span class="ep">Episodio ${n} · ${dur}</span></div>
+      <h2>${title}</h2><p class="desc">${desc}</p>
+      <div class="player"><video src="serie/ep${n}.mp4" poster="serie/ep${n}.jpg" controls playsinline preload="none"></video></div>
+      <a class="dl" href="serie/ep${n}.mp4" download>Descargar MP4 ↓</a>`;
+    list.appendChild(s);
+  }
+  // Pause other videos when one starts playing
+  document.addEventListener("play", e => {
+    document.querySelectorAll("video").forEach(v => { if (v !== e.target) v.pause(); });
+  }, true);
+</script>
 </body>
 </html>
